@@ -7,5 +7,6 @@ A flutter project based on https://www.youtube.com/watch?v=i6gFRSnE6Ro&ab_channe
 - commit : layout - until 40:22 - Applying the initial structure of layout.
 - commit : responsive layout - until 52:16 - Set up the site to adjust according the width.
 - commit : top menu - until 1:09:50 - created the top menu.
+- commit : side menu - until 1:49:01 - created the side menu and the rounting process to change the inside content.
 
 

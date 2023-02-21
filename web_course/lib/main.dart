@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:web_course/screens/home.dart';
+import 'package:web_course/layout.dart';
+import 'package:web_course/controllers/menu_controller.dart';
 
-import 'layout.dart';
+import 'controllers/navigation_controller.dart';
 
 void main() {
+  Get.put(MenuControllerX());
+  Get.put(NavigationController());
   runApp(const MyApp());
 }
 

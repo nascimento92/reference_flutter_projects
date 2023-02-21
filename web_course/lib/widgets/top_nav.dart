@@ -88,7 +88,7 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) {
         //User name
         CustomText(
           text: "Gabriel Nascimento",
-          color: ligthGreyColor,
+          color: darkColor,
         ),
 
         //Space
@@ -115,6 +115,6 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) {
       ],
     ),
     iconTheme: IconThemeData(color: darkColor),
-    backgroundColor: Colors.transparent,
+    backgroundColor: ligthColor,
   );
 }
