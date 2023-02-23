@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:web_course/constants/style.dart';
 import 'package:web_course/layout.dart';
 import 'package:web_course/controllers/menu_controller.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Dash',
       theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
+          scaffoldBackgroundColor: ligthColor,
           textTheme:
               GoogleFonts.mulishTextTheme().apply(bodyColor: Colors.black),
           primarySwatch: Colors.blue,

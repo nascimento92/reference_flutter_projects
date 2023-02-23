@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:web_course/constants/controllers.dart';
 import 'package:web_course/constants/style.dart';
 import 'package:web_course/helpers/responsive.dart';
-import 'package:web_course/routing/routes.dart';
-import 'package:web_course/widgets/custom_text.dart';
-import 'package:web_course/widgets/side_menu_item.dart';
+import 'package:web_course/widgets/side_menu/menu_item_list.dart';
+import 'package:web_course/widgets/custom/custom_text.dart';
+import 'package:web_course/widgets/side_menu/side_menu_item.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});

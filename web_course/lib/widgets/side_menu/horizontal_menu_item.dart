@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:web_course/constants/controllers.dart';
 import 'package:web_course/constants/style.dart';
-import 'package:web_course/widgets/custom_text.dart';
+import 'package:web_course/widgets/custom/custom_text.dart';
 
 class HorizontalMenuItem extends StatelessWidget {
   final String itemName;

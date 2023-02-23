@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../constants/controllers.dart';
-import '../constants/style.dart';
-import 'custom_text.dart';
+import 'package:web_course/widgets/custom/custom_text.dart';
+import '../../constants/controllers.dart';
+import '../../constants/style.dart';
 
 class VerticalMenuItem extends StatelessWidget {
   final String itemName;

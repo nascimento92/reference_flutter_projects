@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_course/constants/style.dart';
 import 'package:web_course/helpers/responsive.dart';
-
-import 'custom_text.dart';
+import '../custom/custom_text.dart';
 
 AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) {
   return AppBar(
@@ -115,6 +114,6 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) {
       ],
     ),
     iconTheme: IconThemeData(color: darkColor),
-    backgroundColor: ligthColor,
+    backgroundColor: Colors.transparent,
   );
 }
