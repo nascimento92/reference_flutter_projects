@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:web_course/constants/style.dart';
 import 'package:web_course/layout.dart';
 import 'package:web_course/controllers/menu_controller.dart';
+import 'package:web_course/pages/authentication/authentication.dart';
 
 import 'controllers/navigation_controller.dart';
 

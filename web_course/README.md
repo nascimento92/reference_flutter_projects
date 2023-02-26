@@ -9,5 +9,6 @@ A flutter project based on https://www.youtube.com/watch?v=i6gFRSnE6Ro&ab_channe
 - commit : top menu - until 1:09:50 - created the top menu.
 - commit : side menu - until 1:49:01 - created the side menu and the rounting process to change the inside content.
 - commit : top cards - until 2:09:56 - created the overview cards about delivery status.
+- commit : page contents - until 2:41:20 - created the content of all pages, including a authentication page
 
 

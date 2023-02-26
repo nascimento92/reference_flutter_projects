@@ -7,6 +7,8 @@ import 'package:web_course/widgets/side_menu/menu_item_list.dart';
 import 'package:web_course/widgets/custom/custom_text.dart';
 import 'package:web_course/widgets/side_menu/side_menu_item.dart';
 
+import '../../pages/authentication/authentication.dart';
+
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});
 
@@ -59,7 +61,7 @@ class SideMenu extends StatelessWidget {
                         : itemName,
                     onTap: () {
                       if (itemName == AuthenticationPageRoute) {
-                        //TODO:: go to authentication page
+                        Get.offAll(() => AuthenticationPage());
                       }
 
                       if (!menuController.isActive(itemName)) {

@@ -32,7 +32,8 @@ class InfoCard extends StatelessWidget {
                     color: ligthGreyColor.withOpacity(.1),
                     blurRadius: 12)
               ],
-              borderRadius: BorderRadius.circular(8)),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: ligthGreyColor, width: .5)),
           child: Column(
             children: [
               Row(
