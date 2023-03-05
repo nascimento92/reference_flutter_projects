@@ -48,6 +48,7 @@ class SideMenu extends StatelessWidget {
                 SizedBox(width: _width / 48),
               ],
             ),
+            
           Divider(
             color: ligthGreyColor.withOpacity(.1),
           ),
