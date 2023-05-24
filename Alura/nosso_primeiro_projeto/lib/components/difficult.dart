@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nosso_primeiro_projeto/star.dart';
+import 'package:nosso_primeiro_projeto/components/star.dart';
 
 class Difficult extends StatelessWidget {
   final int dificuldade;

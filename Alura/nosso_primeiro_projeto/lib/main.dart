@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nosso_primeiro_projeto/components/task.dart';
+import 'package:nosso_primeiro_projeto/screens/form_screen.dart';
 
 import 'screens/first_page.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FirstPage(title: 'Tarefas'),
+      //home: FirstPage(title: 'Tarefas'),
+      home: FormScreen(),
     );
   }
 }
