@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
-class FormScreen extends StatelessWidget {
+class FormScreen extends StatefulWidget {
   FormScreen({super.key});
 
+  @override
+  State<FormScreen> createState() => _FormScreenState();
+}
+
+class _FormScreenState extends State<FormScreen> {
   TextEditingController nameController = TextEditingController();
+
   TextEditingController difficultyController = TextEditingController();
+
   TextEditingController imageController = TextEditingController();
 
   @override
@@ -52,6 +59,9 @@ class FormScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    onChanged: (text) {setState(() {
+                      
+                    });} ,
                     controller: imageController,
                     textAlign: TextAlign.center,
                     decoration: const InputDecoration(
@@ -61,6 +71,26 @@ class FormScreen extends StatelessWidget {
                         filled: true),
                   ),
                 ),
+                Container(
+                  height: 100,
+                  width: 72,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(width: 2, color: Colors.blue)
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      imageController.text, 
+                      fit: BoxFit.cover,
+                      errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace){
+                        return Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkac5A1SaosApRSGSi6Saq4kqlE_Mysi0KO5mhqrU&s',  fit: BoxFit.cover);
+                      },
+                      ),
+                  ),
+                ),
+
                 ElevatedButton(
                     onPressed: () {
                       print(nameController.text);
