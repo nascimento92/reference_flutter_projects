@@ -62,7 +62,7 @@ class _FirstPageState extends State<FirstPage> {
           });
         },
         backgroundColor: Colors.red[400],
-        child: const Icon(Icons.remove_red_eye),
+        child: const Icon(Icons.add),
       ),
     );
   }

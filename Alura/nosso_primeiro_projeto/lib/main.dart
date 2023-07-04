@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: FirstPage(title: 'Tarefas'),
-      home: FormScreen(),
+      home: FirstPage(title: 'Tarefas'),
     );
   }
 }
