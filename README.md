@@ -1,14 +1,16 @@
 # Reference flutter projects
-this git contains a bunch of projects made in flutter.
+<p align="justify">this git contains a bunch of projects made in flutter.</p>
 
-# Alura/nosso_primeiro_projeto
-Task list app.
+<img src="https://img.shields.io/static/v1?label=flutter&message=framework&color=blue&style=for-the-badge&logo=FLUTTER"/>
+
+## Project: Alura/nosso_primeiro_projeto <img src="https://img.shields.io/badge/Mobile-8A2BE2"/>
+Task list app. 
 
 <div align="start">
 <img src="https://github.com/nascimento92/reference_flutter_projects/assets/59546387/055d2807-2d22-49ae-afd4-26e037394fa2)" height="500px">
 </div>
 
-# Web_course
+## Project: Web_course <img src="https://img.shields.io/badge/Web-77CB3D"/>
 Responsive Web Dashboard.
 
 <div align="start">
