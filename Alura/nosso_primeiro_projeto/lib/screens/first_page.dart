@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nosso_primeiro_projeto/components/task.dart';
 import 'package:nosso_primeiro_projeto/screens/form_screen.dart';
+
+import '../data/task_inherited.dart';
 
 // ignore: must_be_immutable
 class FirstPage extends StatefulWidget {
@@ -21,12 +22,7 @@ class _FirstPageState extends State<FirstPage> {
         title: const Text('Tarefas'),
       ),
       body: ListView(
-        children: const [
-          
-          SizedBox(
-            height: 100,
-          )
-        ],
+        children: TaksInherited.of(context).taskList,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
