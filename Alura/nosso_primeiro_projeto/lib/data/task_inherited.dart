@@ -5,7 +5,7 @@ import '../components/task.dart';
 class TaksInherited extends InheritedWidget {
    TaksInherited({super.key, required super.child});
 
-   final List<Task> taskList = [
+   List<Task> taskList = const [
     Task(
       nome: 'Aprender Flutter',
       foto: 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',

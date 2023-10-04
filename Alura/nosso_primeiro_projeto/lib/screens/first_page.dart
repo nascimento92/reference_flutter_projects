@@ -26,7 +26,7 @@ class _FirstPageState extends State<FirstPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => FormScreen()));
+          Navigator.push(context, MaterialPageRoute(builder: (contextNew) => FormScreen(taskContext: context,)));
         },
         backgroundColor: Colors.red[400],
         child: const Icon(Icons.add),

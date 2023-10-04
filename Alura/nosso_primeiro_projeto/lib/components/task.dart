@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nosso_primeiro_projeto/data/task_inherited.dart';
 
 import 'difficult.dart';
 
@@ -83,27 +84,31 @@ class _TaskState extends State<Task> {
                       )
                     ],
                   ),
-                  SizedBox(
-                    width: 52,
-                    height: 52,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          if ((nivel / widget.dificuldade) == 10) {
-                            colorIndex++;
-                            nivel = 0;
-                          } else if (nivel / widget.dificuldade != 10) {
-                            nivel++;
-                          } else {
-                            nivel++;
-                          }
-                        });
-                      },
-                      child: Column(children: const [
-                        Icon(Icons.arrow_drop_up),
-                        Text('UP', style: TextStyle(fontSize: 12))
-                      ]),
-                    ),
+                  Column(
+                    children: [
+                      SizedBox(
+                        width: 52,
+                        height: 52,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              if ((nivel / widget.dificuldade) == 10) {
+                                colorIndex++;
+                                nivel = 0;
+                              } else if (nivel / widget.dificuldade != 10) {
+                                nivel++;
+                              } else {
+                                nivel++;
+                              }
+                            });
+                          },
+                          child: Column(children: const [
+                            Icon(Icons.arrow_drop_up),
+                            Text('UP', style: TextStyle(fontSize: 12))
+                          ]),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
