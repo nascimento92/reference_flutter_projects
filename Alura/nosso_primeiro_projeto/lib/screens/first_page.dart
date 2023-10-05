@@ -23,6 +23,7 @@ class _FirstPageState extends State<FirstPage> {
       ),
       body: ListView(
         children: TaksInherited.of(context).taskList,
+        padding: EdgeInsets.only(bottom: 100, top: 8),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

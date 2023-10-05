@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyFirstWidget(),
-      //home: TaksInherited(child: const FirstPage(title: 'Tarefas'),),
+      //home: MyFirstWidget(),
+      home: TaksInherited(child: const FirstPage(title: 'Tarefas'),),
     );
   }
 }
