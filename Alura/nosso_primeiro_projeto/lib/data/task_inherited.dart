@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../components/task.dart';
 
 class TaksInherited extends InheritedWidget {
-  const TaksInherited({super.key, required super.child});
+   TaksInherited({super.key, required super.child});
 
-  final List<Task> taskList = const [
+   List<Task> taskList = const [
     Task(
       nome: 'Aprender Flutter',
       foto: 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
@@ -31,13 +31,19 @@ class TaksInherited extends InheritedWidget {
     )
   ];
 
+  static TaksInherited of(BuildContext context){
+    final TaksInherited? result = context.dependOnInheritedWidgetOfExactType<TaksInherited>();
+    assert(result != null, 'no taskInherited found in context');
+    return result!;
+  }
+
   void newTask(String name, String photo, int difficulty) {
     taskList.add(Task(nome: name, foto: photo, dificuldade: difficulty));
   }
 
   @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
-    // TODO: implement updateShouldNotify
-    throw UnimplementedError();
+  bool updateShouldNotify(TaksInherited oldWidget) {
+    return oldWidget.taskList.length != taskList.length;
+    //throw UnimplementedError();
   }
 }
