@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx_exemplo2/screens/login_screen.dart';
 import 'package:mobx_exemplo2/stores/list_store.dart';
+import 'package:mobx_exemplo2/stores/login_store.dart';
 import 'package:mobx_exemplo2/widgets/custom_text_field.dart';
+import 'package:provider/provider.dart';
 
 ListStore listStore = ListStore();
 
@@ -41,6 +43,9 @@ class _ListScreenState extends State<ListScreen> {
                     ),
                     IconButton(
                       onPressed: () {
+                        Provider.of<LoginStore>(context, listen: false)
+                            .logOut();
+
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
                             builder: (context) => const LoginScreen(),
@@ -75,7 +80,7 @@ class _ListScreenState extends State<ListScreen> {
                               ? IconButton(
                                   onPressed: () {
                                     listStore.addTodo();
-                                    tarefaController.text = "";
+                                    tarefaController.clear();
                                   },
                                   icon: const Icon(Icons.add))
                               : null,
@@ -90,9 +95,36 @@ class _ListScreenState extends State<ListScreen> {
                         child: Observer(
                           builder: (_) => ListView.separated(
                               itemBuilder: (_, index) {
-                                return ListTile(
-                                  title: Text(listStore.todoList[index]),
-                                  onTap: () {},
+                                final todo = listStore.todoList[index];
+                                return Observer(
+                                  builder: (_) {
+                                    return ListTile(
+                                      title: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              todo.title,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                  decoration: todo.done
+                                                      ? TextDecoration.lineThrough
+                                                      : null,
+                                                  color: todo.done
+                                                      ? Colors.grey
+                                                      : Colors.black),
+                                            ),
+                                          ),
+                                          IconButton(
+                                              onPressed: () {
+                                                listStore.deleteTodo(index);
+                                              },
+                                              icon: Icon(Icons.delete, color: Theme.of(context).primaryColor,))
+                                        ],
+                                      ),
+                                      onTap: todo.toggleDone,
+                                    );
+                                  },
                                 );
                               },
                               separatorBuilder: (_, __) {

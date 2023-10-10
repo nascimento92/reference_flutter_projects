@@ -4,8 +4,9 @@ import 'package:mobx/mobx.dart';
 import 'package:mobx_exemplo2/screens/list_screen.dart';
 import 'package:mobx_exemplo2/stores/login_store.dart';
 import 'package:mobx_exemplo2/widgets/custom_text_field.dart';
+import 'package:provider/provider.dart';
 
-LoginStore loginstore = LoginStore();
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,10 +17,13 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   late ReactionDisposer disposer;
+  LoginStore loginstore = LoginStore();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+
+    loginstore = Provider.of<LoginStore>(context);
 
     disposer = reaction((_) => loginstore.isLoggedIn, (loggedIn) {
       if (loggedIn) {

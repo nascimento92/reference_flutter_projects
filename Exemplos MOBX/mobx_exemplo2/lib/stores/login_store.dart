@@ -32,10 +32,17 @@ abstract class _LoginStoreBase with Store {
   Future<void> login() async {
     isLoading = true;
 
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
 
     isLoading = false;
     isLoggedIn = true;
+  }
+
+  @action
+  void logOut(){
+    isLoggedIn = false;
+    email = "";
+    password = "";
   }
 
   @computed
