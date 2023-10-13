@@ -156,6 +156,17 @@ mixin _$LoginStore on _LoginStoreBase, Store {
   }
 
   @override
+  void logOut() {
+    final _$actionInfo = _$_LoginStoreBaseActionController.startAction(
+        name: '_LoginStoreBase.logOut');
+    try {
+      return super.logOut();
+    } finally {
+      _$_LoginStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 email: ${email},

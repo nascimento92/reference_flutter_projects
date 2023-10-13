@@ -59,6 +59,17 @@ mixin _$ListStore on _ListStoreBase, Store {
   }
 
   @override
+  void deleteTodo(int index) {
+    final _$actionInfo = _$_ListStoreBaseActionController.startAction(
+        name: '_ListStoreBase.deleteTodo');
+    try {
+      return super.deleteTodo(index);
+    } finally {
+      _$_ListStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 newTodoTitle: ${newTodoTitle},

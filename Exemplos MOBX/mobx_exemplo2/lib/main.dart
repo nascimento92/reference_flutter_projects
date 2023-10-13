@@ -10,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Provider(
@@ -27,6 +26,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-//aula 9/11
-//https://www.youtube.com/watch?v=J_uR90gWT80&list=PLR5GUTqrcwXim6ZCDvRpsak8CB8_mreCE&index=9&ab_channel=Startto

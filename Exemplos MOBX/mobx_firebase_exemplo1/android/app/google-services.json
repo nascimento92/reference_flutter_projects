@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "371210435710",
+    "project_id": "whatsweb-c9aca",
+    "storage_bucket": "whatsweb-c9aca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371210435710:android:d12710bac7506fb0c46c2f",
+        "android_client_info": {
+          "package_name": "br.com.gsn.mobx.firebase.exemplo1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371210435710-io028hn89dsd7pp198as5vg44oapkmik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP0SOFMiKnMOKKY4GDwfRBh1bwh8QrS2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371210435710-io028hn89dsd7pp198as5vg44oapkmik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
