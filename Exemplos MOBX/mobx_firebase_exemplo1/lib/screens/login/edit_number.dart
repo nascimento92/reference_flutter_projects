@@ -1,15 +1,43 @@
 import 'package:flutter/cupertino.dart';
+import 'package:mobx_firebase_exemplo1/components/logo.dart';
 
-class EditNumber extends StatefulWidget {
+class EditNumber extends StatelessWidget {
   const EditNumber({super.key});
 
   @override
-  State<EditNumber> createState() => _EditNumberState();
-}
-
-class _EditNumberState extends State<EditNumber> {
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return CupertinoPageScaffold(
+      navigationBar: const CupertinoNavigationBar(
+        middle: Text('Edit Number'),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Logo(
+                heigth: 50,
+                width: 50,
+                radius: Radius.circular(30),
+              ),
+              Text(
+                "Verification • one step",
+                style: TextStyle(
+                    color: Color(0xFF08C187).withOpacity(0.7), fontSize: 28),
+              )
+            ],
+          ),
+          Text(
+            "Enter your phone number",
+            style: TextStyle(
+                color: CupertinoColors.systemGrey.withOpacity(0.7),
+                fontSize: 22),
+          ),
+          CupertinoListTile(onTap: () {}, title: const Text('Portugal'))
+        ],
+      ),
+    );
   }
 }
