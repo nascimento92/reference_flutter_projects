@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx_firebase_exemplo1/components/blue_image_page_scaffold.dart';
 import 'package:mobx_firebase_exemplo1/components/lets_start.dart';
 import 'package:mobx_firebase_exemplo1/components/logo.dart';
 import 'package:mobx_firebase_exemplo1/components/termsAndConditions.dart';
+import 'package:mobx_firebase_exemplo1/screens/login/edit_number.dart';
 
 class Hello extends StatelessWidget {
   const Hello({super.key});
@@ -27,7 +29,10 @@ class Hello extends StatelessWidget {
         ],
       ),
       TermsAndConditions(onpressed: () {}),
-      LetsStart(onPressed: () {})
+      LetsStart(onPressed: () {
+        Navigator.push(context,
+            CupertinoPageRoute(builder: (context) => const EditNumber()));
+      })
     ], imagePath: 'images/bg.jpg');
   }
 }
