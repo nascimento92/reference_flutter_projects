@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobx_firebase_exemplo1/screens/login/user_name.dart';
 
 // ignore: constant_identifier_names
 enum Status { Waiting, Error }
@@ -8,7 +9,7 @@ enum Status { Waiting, Error }
 class VerifyNumber extends StatefulWidget {
   const VerifyNumber({super.key, required this.number});
 
-  final int? number;
+  final number;
 
   @override
   State<VerifyNumber> createState() => _VerifyNumberState(number);
@@ -41,16 +42,22 @@ class _VerifyNumberState extends State<VerifyNumber> {
       codeAutoRetrievalTimeout: (verificationId) async{},);
   }
 
-  // ignore: unused_element
+  
   Future _sendCodeToFirebase({String? code}) async{
     if(_verificationId!=null){
       var credential = PhoneAuthProvider.credential(verificationId: _verificationId, smsCode: code!);
       
       await _auth.signInWithCredential(credential)
-      .then((value) => {})
-      .whenComplete(() => {})
-      .onError((error, stackTrace) => {
-        
+      .then((value){
+        Navigator.push(context, CupertinoPageRoute(builder: (context) => UserName()));
+      })
+      .whenComplete((){})
+      .onError((error, stackTrace){
+        setState(() {
+          _textEditingController.text='';
+          _status = Status.Error;
+          
+        });
       });
     }
   }
@@ -82,7 +89,9 @@ class _VerifyNumberState extends State<VerifyNumber> {
                 CupertinoTextField(
                   onChanged: (value) async {
                     print(value);
-                    if (value.length == 6) {}
+                    if (value.length == 6) {
+                      _sendCodeToFirebase(code: value);
+                    }
                   },
                   textAlign: TextAlign.center,
                   style: const TextStyle(letterSpacing: 30, fontSize: 30),
@@ -96,7 +105,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
                   children: [
                     const Text('Dint\'t receive the OTP?'),
                     CupertinoButton(
-                        child: const Text("RESEND OTP"), onPressed: () {})
+                        child: const Text("RESEND OTP"), onPressed: () async => _sendCodeToFirebase())
                   ],
                 )
               ],
@@ -120,9 +129,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
                 ),
                 CupertinoButton(
                   child: const Text("Resend Code"),
-                  onPressed: (){
-                    Navigator.push(context, CupertinoPageRoute(builder: (context)=> VerifyNumber(number: data['code']! + _textEditingController.text)))
-                  },
+                  onPressed: () async => _sendCodeToFirebase(),
                 ),
               ],
             ),

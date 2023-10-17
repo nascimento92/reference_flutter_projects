@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:mobx_firebase_exemplo1/components/logo.dart';
 import 'package:mobx_firebase_exemplo1/screens/login/select_country.dart';
+import 'package:mobx_firebase_exemplo1/screens/login/verify_number.dart';
 
 class EditNumber extends StatefulWidget {
   const EditNumber({super.key});
@@ -98,7 +99,14 @@ class _EditNumberState extends State<EditNumber> {
           ),
           const SizedBox(height: 40),
           CupertinoButton.filled(
-              child: const Text('Request code'), onPressed: () {})
+              child: const Text('Request code'), onPressed: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => VerifyNumber(
+                                number: data['code']! + _enterPhoneNumber.text,
+                              )));
+                })
         ],
       ),
     );
