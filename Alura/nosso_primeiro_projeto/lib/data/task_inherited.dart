@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../components/task.dart';
 
 class TaksInherited extends InheritedWidget {
-   TaksInherited({super.key, required super.child});
+  TaksInherited({super.key, required super.child});
 
-   List<Task> taskList = const [
+  List<Task> taskList = [
     Task(
       nome: 'Aprender Flutter',
       foto: 'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
@@ -31,8 +31,9 @@ class TaksInherited extends InheritedWidget {
     )
   ];
 
-  static TaksInherited of(BuildContext context){
-    final TaksInherited? result = context.dependOnInheritedWidgetOfExactType<TaksInherited>();
+  static TaksInherited of(BuildContext context) {
+    final TaksInherited? result =
+        context.dependOnInheritedWidgetOfExactType<TaksInherited>();
     assert(result != null, 'no taskInherited found in context');
     return result!;
   }
