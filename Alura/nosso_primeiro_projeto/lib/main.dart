@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nosso_primeiro_projeto/components/task.dart';
-import 'package:nosso_primeiro_projeto/screens/form_screen.dart';
-import 'package:nosso_primeiro_projeto/screens/minha_primeira_tela.dart';
-
 import 'data/task_inherited.dart';
 import 'screens/first_page.dart';
 
@@ -21,7 +17,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: MyFirstWidget(),
-      home: TaksInherited(child: const FirstPage(title: 'Tarefas'),),
+      home: TaksInherited(
+        child: const FirstPage(title: 'Tarefas'),
+      ),
     );
   }
 }

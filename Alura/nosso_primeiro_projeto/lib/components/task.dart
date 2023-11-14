@@ -64,6 +64,8 @@ class _TaskState extends State<Task> {
                       child: Image.network(
                         widget.foto,
                         fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) =>
+                            const Text('Error'),
                       ),
                     ),
                   ),
@@ -100,9 +102,11 @@ class _TaskState extends State<Task> {
                               } else {
                                 nivel++;
                               }
+
+                              TaksInherited.of(context).insereValorTotal();
                             });
                           },
-                          child: Column(children: const [
+                          child: const Column(children: [
                             Icon(Icons.arrow_drop_up),
                             Text('UP', style: TextStyle(fontSize: 12))
                           ]),
