@@ -44,7 +44,7 @@ class _FormScreenState extends State<FormScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       validator: (String? value) {
-                        if(value!=null && value.isEmpty){
+                        if (value != null && value.isEmpty) {
                           return 'Insira o Nome da Tarefa';
                         }
                         return null;
@@ -62,15 +62,14 @@ class _FormScreenState extends State<FormScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       validator: (String? value) {
-
-                        if( value!=null && value.isEmpty){
+                        if (value != null && value.isEmpty) {
                           return 'Insira a dificuldade.';
                         }
 
-                        if((value!=null && value.isNotEmpty)){
-                          if(int.parse(value) < 1 || int.parse(value) > 5){
+                        if ((value != null && value.isNotEmpty)) {
+                          if (int.parse(value) < 1 || int.parse(value) > 5) {
                             return 'Dificuldade incorreta deve ser de 1 a 5.';
-                          }   
+                          }
                         }
                         return null;
                       },
@@ -122,12 +121,18 @@ class _FormScreenState extends State<FormScreen> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        if(_formKey.currentState!.validate()){
-                          
-                          TaksInherited.of(widget.taskContext).newTask(nameController.text, imageController.text, int.parse(difficultyController.text));
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Salvando nova tarefa"), elevation: 150, behavior: SnackBarBehavior.floating,));
+                        if (_formKey.currentState!.validate()) {
+                          TaksInherited.of(widget.taskContext).newTask(
+                              nameController.text,
+                              imageController.text,
+                              int.parse(difficultyController.text));
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Salvando nova tarefa"),
+                            elevation: 150,
+                            behavior: SnackBarBehavior.floating,
+                          ));
                           Navigator.pop(context);
-                          
                         }
                       },
                       child: Text('Adicionar'))
