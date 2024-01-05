@@ -7,8 +7,11 @@ class Task extends StatefulWidget {
   final String nome;
   final String foto;
   final int dificuldade;
+  final String id;
+
   const Task(
       {super.key,
+      required this.id,
       required this.nome,
       required this.foto,
       required this.dificuldade});

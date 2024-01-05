@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nosso_primeiro_projeto/components/task.dart';
+import 'package:nosso_primeiro_projeto/data/task_dao.dart';
 import 'package:nosso_primeiro_projeto/data/task_inherited.dart';
+import 'package:uuid/uuid.dart';
 
 class FormScreen extends StatefulWidget {
   final BuildContext taskContext;
@@ -122,10 +125,23 @@ class _FormScreenState extends State<FormScreen> {
                   ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          TaksInherited.of(widget.taskContext).newTask(
-                              nameController.text,
-                              imageController.text,
-                              int.parse(difficultyController.text));
+                          var uuid = const Uuid();
+                          String u = uuid.v1();
+
+                          TaskDao().save(
+                            Task(
+                              id: u,
+                              nome: nameController.text,
+                              foto: imageController.text,
+                              dificuldade: int.parse(difficultyController.text),
+                            ),
+                          );
+
+                          // TaksInherited.of(widget.taskContext).newTask(
+                          //     nameController.text,
+                          //     imageController.text,
+                          //     int.parse(difficultyController.text),
+                          //     uuid.v1().toString());
                           ScaffoldMessenger.of(context)
                               .showSnackBar(const SnackBar(
                             content: Text("Salvando nova tarefa"),
@@ -135,7 +151,7 @@ class _FormScreenState extends State<FormScreen> {
                           Navigator.pop(context);
                         }
                       },
-                      child: Text('Adicionar'))
+                      child: const Text('Adicionar'))
                 ],
               ),
             ),
