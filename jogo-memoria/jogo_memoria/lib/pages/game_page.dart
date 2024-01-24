@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:jogo_memoria/components/constants.dart';
 import 'package:jogo_memoria/widgets/card_game.dart';
+import 'package:jogo_memoria/widgets/feedback_game.dart';
 
 class GamePage extends StatelessWidget {
   final Modo modo;
@@ -56,7 +57,6 @@ class GamePage extends StatelessWidget {
           ),
         ]),
       ),
-
       body: Center(
         child: GridView.count(
           shrinkWrap: true,
@@ -64,8 +64,9 @@ class GamePage extends StatelessWidget {
           mainAxisSpacing: 15,
           crossAxisCount: getAxisCount(),
           padding: const EdgeInsets.all(24),
-          children: List.generate(nivel, (index) => CardGame(modo: modo, opcao: Random().nextInt(14))),
-          ),
+          children: List.generate(nivel,
+              (index) => CardGame(modo: modo, opcao: Random().nextInt(14))),
+        ),
       ),
     );
   }
