@@ -2,23 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:jogo_memoria/components/constants.dart';
+import 'package:jogo_memoria/components/game_settings.dart';
+import 'package:jogo_memoria/model/game_play.dart';
 import 'package:jogo_memoria/widgets/card_game.dart';
-import 'package:jogo_memoria/widgets/feedback_game.dart';
 
 class GamePage extends StatelessWidget {
-  final Modo modo;
-  final int nivel;
-  const GamePage({super.key, required this.modo, required this.nivel});
-
-  getAxisCount() {
-    if (nivel < 10) {
-      return 2;
-    } else if (nivel == 10 || nivel == 12 || nivel == 18) {
-      return 3;
-    } else {
-      return 4;
-    }
-  }
+  final GamePlay gamePlay;
+  const GamePage({super.key, required this.gamePlay});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +21,7 @@ class GamePage extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(modo == Modo.round6
+              Icon(gamePlay.modo == Modo.round6
                   ? Icons.my_location
                   : Icons.touch_app_rounded),
               const SizedBox(
@@ -62,10 +52,12 @@ class GamePage extends StatelessWidget {
           shrinkWrap: true,
           crossAxisSpacing: 15,
           mainAxisSpacing: 15,
-          crossAxisCount: getAxisCount(),
+          crossAxisCount: GameSettings.gameBoardAxisCount(gamePlay.nivel),
           padding: const EdgeInsets.all(24),
-          children: List.generate(nivel,
-              (index) => CardGame(modo: modo, opcao: Random().nextInt(14))),
+          children: List.generate(
+              gamePlay.nivel,
+              (index) =>
+                  CardGame(modo: gamePlay.modo, opcao: Random().nextInt(14))),
         ),
       ),
     );
