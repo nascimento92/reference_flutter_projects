@@ -1,15 +1,17 @@
-import 'dart:async';
-import 'dart:math';
 
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:jogo_memoria/components/constants.dart';
 import 'package:jogo_memoria/components/theme.dart';
+import 'package:jogo_memoria/controller/game_controller.dart';
+import 'package:jogo_memoria/model/game_opcao.dart';
+import 'package:provider/provider.dart';
 
 class CardGame extends StatefulWidget {
   final Modo modo;
-  final int opcao;
+  final GameOpcao gameOpcao;
 
-  const CardGame({super.key, required this.modo, required this.opcao});
+  const CardGame({super.key, required this.modo, required this.gameOpcao});
 
   @override
   State<CardGame> createState() => _CardGameState();
@@ -28,20 +30,29 @@ class _CardGameState extends State<CardGame>
 
   @override
   void dispose() {
-    super.dispose();
     animation.dispose();
+    super.dispose();
+    
   }
 
   flipCard() {
-    if (!animation.isAnimating) {
+    final GameController game = Provider.of<GameController>(context, listen: false);
+
+
+    if (!animation.isAnimating && !widget.gameOpcao.matched && !widget.gameOpcao.selected && !game.jogadaCompleta) {
       animation.forward();
-      Timer(const Duration(seconds: 2), () => animation.reverse());
+      game.escolher(widget.gameOpcao, resetCard);
+      //Timer(const Duration(seconds: 2), () => animation.reverse());
     }
+  }
+
+  resetCard(){
+    animation.reverse();
   }
 
   AssetImage getImage(double angulo) {
     if (angulo > 0.5 * pi) {
-      return AssetImage('images/${widget.opcao.toString()}.png');
+      return AssetImage('images/${widget.gameOpcao.opcao.toString()}.png');
     }
     return widget.modo == Modo.normal
         ? const AssetImage('images/card_normal.png')

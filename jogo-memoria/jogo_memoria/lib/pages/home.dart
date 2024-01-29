@@ -22,14 +22,14 @@ class Home extends StatelessWidget {
               const Logo(),
               StartButtton (
                 action: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const NivelPage(modo: Modo.normal)));
+                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const NivelPage(modo: Modo.normal)));
                 },
                 color: Colors.white,
                 title: 'Modo Normal',
               ),
               StartButtton(
                 action: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const NivelPage(modo: Modo.round6)));
+                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const NivelPage(modo: Modo.round6)));
                 },
                 color: Round6Theme.color,
                 title: 'Modo Round 6',

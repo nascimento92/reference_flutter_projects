@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:jogo_memoria/components/theme.dart';
+import 'package:jogo_memoria/controller/game_controller.dart';
 import 'package:jogo_memoria/pages/home.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<GameController>(create: (_) => GameController())
+      ],
+      child: const MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
