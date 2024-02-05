@@ -81,6 +81,14 @@ mixin _$GameController on _GameControllerBase, Store {
     });
   }
 
+  late final _$escolherAsyncAction =
+      AsyncAction('_GameControllerBase.escolher', context: context);
+
+  @override
+  Future escolher(GameOpcao opcao, Function resetCard) {
+    return _$escolherAsyncAction.run(() => super.escolher(opcao, resetCard));
+  }
+
   late final _$_GameControllerBaseActionController =
       ActionController(name: '_GameControllerBase', context: context);
 
@@ -90,6 +98,28 @@ mixin _$GameController on _GameControllerBase, Store {
         name: '_GameControllerBase.startGame');
     try {
       return super.startGame(gamePlay: gamePlay);
+    } finally {
+      _$_GameControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic restartGame() {
+    final _$actionInfo = _$_GameControllerBaseActionController.startAction(
+        name: '_GameControllerBase.restartGame');
+    try {
+      return super.restartGame();
+    } finally {
+      _$_GameControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic nextLevel() {
+    final _$actionInfo = _$_GameControllerBaseActionController.startAction(
+        name: '_GameControllerBase.nextLevel');
+    try {
+      return super.nextLevel();
     } finally {
       _$_GameControllerBaseActionController.endAction(_$actionInfo);
     }

@@ -2,6 +2,7 @@ import 'package:jogo_memoria/components/constants.dart';
 import 'package:jogo_memoria/components/game_settings.dart';
 import 'package:jogo_memoria/model/game_opcao.dart';
 import 'package:jogo_memoria/model/game_play.dart';
+import 'package:jogo_memoria/repositories/recordes_repository.dart';
 import 'package:mobx/mobx.dart';
 part 'game_controller.g.dart';
 
@@ -26,6 +27,15 @@ abstract class _GameControllerBase with Store {
   List<Function> _escolhaCallback = [];
   int _acertos = 0;
   int _numPares = 0;
+  RecordesRepository recordesRepository;
+
+  _GameControllerBase({required this.recordesRepository}){
+    reaction((_) => venceu == true, (bool ganhou){
+      if (ganhou){
+        recordesRepository.updateRecordes(gameplay: _gamePlay, score: score);
+      }
+    });
+  }
 
   @computed
   bool get jogadaCompleta => (_escolha.length == 2);
